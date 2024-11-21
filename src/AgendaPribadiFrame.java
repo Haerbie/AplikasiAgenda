@@ -8,7 +8,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -36,7 +35,7 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
     // Inisialisasi komponen tambahan
     private void inisialisasi() {
         // Atur model untuk combo box kategori
-        comboKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Keluarga", "Pribadi", "Kerja" }));
+        comboKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Keluarga", "Pribadi", "Pekerjaan" }));
         
         // Atur model untuk spinner jam tanpa detik
         jSpinner1.setModel(new javax.swing.SpinnerDateModel());
@@ -87,7 +86,6 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         });
     }
      
-    // Metode untuk memuat data ke tabel
     // Metode untuk memuat data ke tabel
     private void muatData() {
         // Tambahkan kolom "Status" dengan tipe Boolean
@@ -144,13 +142,13 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
 
         Boolean status = (Boolean) table.getModel().getValueAt(row, 6);
         if (status != null && status) {
-            // Apply strikethrough
+            // menerapkan strikethrough
             Font font = c.getFont();
             Map<TextAttribute, Object> attributes = (Map<TextAttribute, Object>) font.getAttributes();
             attributes.put(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
             c.setFont(font.deriveFont(attributes));
         } else {
-            // Remove strikethrough
+            // hapus strikethrough
             Font font = c.getFont();
             Map<TextAttribute, Object> attributes = (Map<TextAttribute, Object>) font.getAttributes();
             attributes.remove(TextAttribute.STRIKETHROUGH);
@@ -207,16 +205,22 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("UTS"));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "UTS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Aplikas Agenda Pribadi");
         jPanel1.add(jLabel1);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
 
+        jPanel2.setBackground(new java.awt.Color(0, 102, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nama Agenda");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -224,6 +228,8 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel2.add(jLabel2, gridBagConstraints);
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Deskripsi");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -233,6 +239,8 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel2.add(jLabel3, gridBagConstraints);
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Kategori");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -242,6 +250,8 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel2.add(jLabel4, gridBagConstraints);
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Pilih Tanggal dan Jam");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -251,6 +261,7 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel2.add(jLabel5, gridBagConstraints);
 
+        comboKategori.setBackground(new java.awt.Color(0, 51, 204));
         comboKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -260,6 +271,8 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 20;
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel2.add(comboKategori, gridBagConstraints);
+
+        jDateChooser1.setBackground(new java.awt.Color(0, 51, 204));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -275,6 +288,8 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel2.add(jSpinner1, gridBagConstraints);
 
+        jButton1.setBackground(new java.awt.Color(51, 255, 51));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("Tambah");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,6 +304,8 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel2.add(jButton1, gridBagConstraints);
 
+        jButton2.setBackground(new java.awt.Color(51, 204, 255));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setText("Edit");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,10 +316,12 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 35;
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel2.add(jButton2, gridBagConstraints);
 
+        jButton3.setBackground(new java.awt.Color(255, 51, 51));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton3.setText("Hapus");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -313,9 +332,11 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 50;
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel2.add(jButton3, gridBagConstraints);
+
+        teksNama.setForeground(new java.awt.Color(0, 51, 204));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -324,6 +345,8 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 20;
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel2.add(teksNama, gridBagConstraints);
+
+        teksDeskripsi.setForeground(new java.awt.Color(0, 51, 204));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -335,9 +358,13 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.WEST);
 
+        jPanel3.setBackground(new java.awt.Color(0, 102, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
+        jScrollPane2.setBackground(new java.awt.Color(0, 102, 102));
+
+        tabelAgenda.setBackground(new java.awt.Color(0, 153, 153));
         tabelAgenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -359,7 +386,11 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.EAST);
 
+        jPanel4.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel4.setLayout(new java.awt.GridBagLayout());
+
+        jTextField3.setForeground(new java.awt.Color(0, 51, 204));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -368,6 +399,8 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel4.add(jTextField3, gridBagConstraints);
 
+        jButton4.setBackground(new java.awt.Color(204, 204, 204));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton4.setText("Cari");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -382,6 +415,8 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel4.add(jButton4, gridBagConstraints);
 
+        jButton5.setBackground(new java.awt.Color(255, 153, 0));
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton5.setText("Simpan data");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -396,6 +431,8 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel4.add(jButton5, gridBagConstraints);
 
+        jButton6.setBackground(new java.awt.Color(153, 153, 153));
+        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton6.setText("Muat Data");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -415,6 +452,7 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Event Tambah Data
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nama = teksNama.getText();
         String deskripsi = teksDeskripsi.getText();
@@ -435,6 +473,7 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    //Event Edit Data
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int selectedRow = tabelAgenda.getSelectedRow();
         if (selectedRow >= 0) {
@@ -462,6 +501,7 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    //Event Hapus Data
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         int selectedRow = tabelAgenda.getSelectedRow();
         if (selectedRow >= 0) {
@@ -476,6 +516,7 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    //Event Cari Data
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         String keyword = jTextField3.getText();
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Nama", "Deskripsi", "Kategori", "Tanggal", "Jam", "Status"}, 0) {
@@ -495,6 +536,7 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         tabelAgenda.setDefaultRenderer(Object.class, new StrikethroughRenderer());
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    //Event Simpan Data
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         JFileChooser chooser = new JFileChooser();
         int retrival = chooser.showSaveDialog(this);
@@ -512,6 +554,7 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    //Event Muat Data
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         JFileChooser chooser = new JFileChooser();
         int retrival = chooser.showOpenDialog(this);

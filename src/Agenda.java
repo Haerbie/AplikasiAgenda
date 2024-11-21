@@ -10,7 +10,7 @@ public class Agenda {
     private String kategori;
     private Date tanggal;
     private String jam;
-    private boolean status; // Tambahkan field status
+    private boolean status; 
 
     // Konstruktor
     public Agenda(int id, String nama, String deskripsi, String kategori, Date tanggal, String jam, boolean status) {
