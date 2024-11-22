@@ -85,6 +85,7 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
             }
         });
     }
+    
      
     // Metode untuk memuat data ke tabel
     private void muatData() {
@@ -113,6 +114,7 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
 
         // Set renderer untuk menerapkan coretan pada baris yang statusnya true
         tabelAgenda.setDefaultRenderer(Object.class, new StrikethroughRenderer());
+        
 
         // Tambahkan listener untuk perubahan pada checkbox
         model.addTableModelListener(e -> {
@@ -210,7 +212,7 @@ public class AgendaPribadiFrame extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Aplikas Agenda Pribadi");
+        jLabel1.setText("Aplikasi Agenda Pribadi");
         jPanel1.add(jLabel1);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
