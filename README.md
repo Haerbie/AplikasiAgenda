@@ -187,3 +187,6 @@ private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
 
 ---
 
+## Tampilan Aplikasi Saat di Run
+
+![image](https://github.com/user-attachments/assets/3f1d2f86-9bf6-446f-a590-233bb39cc066)
